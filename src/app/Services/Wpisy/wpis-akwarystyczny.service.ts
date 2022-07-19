@@ -42,8 +42,13 @@ export class WpisAkwarystycznyService implements Product{
   }
   
   dodajWpis(entry:Entry): string {
-    let entryRawArray = localStorage.getItem('akwarystyka')
-    let entryArray = JSON.parse(String(entryRawArray))
+    let entryRawArray = localStorage.getItem('akwarystyka');
+    let entryArray
+    if(!entryRawArray){
+      entryArray = []
+    }else{
+      entryArray = JSON.parse(String(entryRawArray))
+    }
     entryArray.push(entry)
     localStorage.setItem('akwarystyka', JSON.stringify(entryArray));
     return 'Dodano';

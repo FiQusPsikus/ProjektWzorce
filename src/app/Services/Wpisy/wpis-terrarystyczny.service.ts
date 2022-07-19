@@ -43,7 +43,12 @@ export class WpisTerrarystycznyService implements Product{
   
   dodajWpis(entry:Entry): string {
     let entryRawArray = localStorage.getItem('terrarystyka')
-    let entryArray = JSON.parse(String(entryRawArray))
+    let entryArray
+    if(!entryRawArray){
+      entryArray = []
+    }else{
+      entryArray = JSON.parse(String(entryRawArray))
+    }
     
     entryArray.push(entry)
     localStorage.setItem('terrarystyka', JSON.stringify(entryArray));
