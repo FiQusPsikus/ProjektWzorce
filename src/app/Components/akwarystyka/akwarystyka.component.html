@@ -1,0 +1,7 @@
+<div style="width:100%;">
+    <app-text-editor (customerChange)="wczytajWpisy()" style="display: inline-block; position: absolute;" service="{{ this.service }}"></app-text-editor>
+    <div style="width:30%;margin-left:500px;display: inline-block;">
+        <h2>Dział akwarystyczny</h2>
+        <div *ngFor="let item of this.entryList"><app-entry-item fullName="{{ item.fullName.fullName }}" description="{{ item.Description }}"></app-entry-item></div>
+    </div>
+</div>

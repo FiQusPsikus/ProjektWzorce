@@ -1,0 +1,13 @@
+<form class="example-form" [formGroup]="profileForm" (submit)="onSubmit()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Imie i nazwisko</mat-label>
+      <input matInput formControlName="fullName">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Treść</mat-label>
+      <textarea (keydown.shift.arrowdown)="backup()" formControlName="description" matInput #box (input)="onInput(box.value)" >{{ this.value }}</textarea>
+    </mat-form-field>
+
+    <button type="submit" (ngSubmit)="onSubmit()" >Dodaj post</button>
+  </form>
